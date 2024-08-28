@@ -95,6 +95,15 @@ AUTH_USER_MODEL = "authentication.CustomUser"
 
 APPEND_SLASH = False
 
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+# This setting tells Django to look for static files in a 'static' folder within each app
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
