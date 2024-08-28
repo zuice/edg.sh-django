@@ -1,3 +1,5 @@
 django
 django-tailwind
 python-dotenv
+gunicorn
+psycopg2-binary==2.8.6
