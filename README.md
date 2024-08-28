@@ -23,4 +23,4 @@ Edg.sh is a URL shortener built with Django.
 
 This project is a basic URL shortener built with Django. I enjoy Python and Django, but I
 barely get to use it, so I thought this would be a good way to use it more. Also I'm trying
-to build and deploy more projects.
+to build and deploy more projects. I built a better one a while ago with GraphQL and Next.js [Here](https://github.com/zuice/edg.sh).
