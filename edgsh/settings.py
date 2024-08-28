@@ -38,7 +38,7 @@ SECURE_SSL_REDIRECT = DEBUG
 
 SESSION_SECURE_COOKIE = DEBUG
 
-ALLOWED_HOSTS = ["localhost", "edg.sh"]
+ALLOWED_HOSTS = ["localhost", "edg.sh", "www.edg.sh"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -95,11 +95,11 @@ AUTH_USER_MODEL = "authentication.CustomUser"
 
 APPEND_SLASH = False
 
-# Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-# This setting tells Django to look for static files in a 'static' folder within each app
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
