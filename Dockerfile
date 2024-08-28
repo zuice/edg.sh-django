@@ -14,7 +14,6 @@ RUN pip install -r requirements.txt
 
 # Copy project
 COPY . /app/
-COPY .env.prod /app/.env
 
 # Run migrations
 RUN python manage.py migrate
