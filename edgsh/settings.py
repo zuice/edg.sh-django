@@ -17,6 +17,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
+def str_to_bool(value: str) -> bool:
+    return value.lower() in ("true", "yes", "1", "on")
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DJANGO_DEBUG", False)
+DEBUG = str_to_bool(os.environ.get("DJANGO_DEBUG", "False"))
 
 ALLOWED_HOSTS = ["localhost", "https://edg.sh/"]
 
@@ -89,7 +94,7 @@ APPEND_SLASH = False
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if DEBUG == "development":
+if DEBUG:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
