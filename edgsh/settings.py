@@ -34,6 +34,10 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str_to_bool(os.environ.get("DJANGO_DEBUG", "False"))
 
+SECURE_SSL_REDIRECT = DEBUG
+
+SESSION_SECURE_COOKIE = DEBUG
+
 ALLOWED_HOSTS = ["localhost", "edg.sh"]
 
 INTERNAL_IPS = [
