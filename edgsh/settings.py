@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str_to_bool(os.environ.get("DJANGO_DEBUG", "False"))
 
-ALLOWED_HOSTS = ["localhost", "https://edg.sh/"]
+ALLOWED_HOSTS = ["localhost", "https://edg.sh", "https://www.edg.sh"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
