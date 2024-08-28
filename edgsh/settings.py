@@ -34,9 +34,9 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str_to_bool(os.environ.get("DJANGO_DEBUG", "False"))
 
-SECURE_SSL_REDIRECT = DEBUG
+SECURE_SSL_REDIRECT = False
 
-SESSION_SECURE_COOKIE = DEBUG
+SESSION_SECURE_COOKIE = not DEBUG
 
 ALLOWED_HOSTS = ["localhost", "edg.sh", "www.edg.sh"]
 
@@ -97,8 +97,6 @@ APPEND_SLASH = False
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),

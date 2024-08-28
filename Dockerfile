@@ -19,6 +19,12 @@ COPY . /app/
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
+# Add whitenoise`
+RUN sed -i "s/MIDDLEWARE = \[/MIDDLEWARE = [\n    'whitenoise.middleware.WhiteNoiseMiddleware',/" /app/edgsh/settings.py
+
+# Add WhiteNoise storage configuration
+RUN echo "STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'" >> /app/edgsh/settings.py
+
 # Run migrations
 RUN python manage.py migrate
 
