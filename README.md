@@ -18,6 +18,7 @@ Edg.sh is a URL shortener built with Django.
 
 - [ ] Fix design
 - [ ] Add more functionality like analytics, etc. on clicks
+- [ ] Use a better form of IDs, autoincrement sucks..
 
 ### Goals
 
