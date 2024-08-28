@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .link {
+    @apply text-blue-600 hover:text-blue-800 hover:border-b-2 hover:border-blue-800;
+  }
+}

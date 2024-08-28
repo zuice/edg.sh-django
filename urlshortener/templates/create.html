@@ -1,0 +1,16 @@
+{% extends 'content.html' %}
+
+{% block title %}
+  Create URL
+{% endblock %}
+
+{% block layout %}
+  <h3 class="text-xl">Create a new URL</h3>
+  <a href="{% url 'index' %}" class="link">Back</a>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" />
+  </form>
+{% endblock %}

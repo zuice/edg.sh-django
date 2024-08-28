@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="mb-4">
+    <h2 class="text-xl">
+      Edg.sh <small class="text-gray-500 text-sm">
+        Logged in as {{ user.email }}.
+        <a href="{% url 'logout' %}" class="link">Logout</a>
+      </small>
+    </h2>
+
+    {% block layout %}
+
+    {% endblock %}
+  </div>
+{% endblock %}
