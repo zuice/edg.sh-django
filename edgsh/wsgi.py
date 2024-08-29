@@ -8,13 +8,10 @@ https://docs.djangoproject.com/en/5.1/howto/deployment/wsgi/
 """
 
 import os
-from whitenoise import WhiteNoise
 
 from django.core.wsgi import get_wsgi_application
 
+DEBUG = os.environ.get("DJANGO_DEBUG")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "edgsh.settings")
 
 application = get_wsgi_application()
-
-if os.environ.get("DJANGO_DEBUG") == "False":
-    application = WhiteNoise(application)

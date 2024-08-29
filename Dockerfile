@@ -15,17 +15,20 @@ RUN pip install -r requirements.txt
 
 # Copy project
 COPY . /app/
+# ONLY uncomment this if building locally
+# COPY .env.prod .env
 
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
-# Add whitenoise`
-RUN sed -i "s/MIDDLEWARE = \[/MIDDLEWARE = [\n    'whitenoise.middleware.WhiteNoiseMiddleware',/" /app/edgsh/settings.py
+# # Add whitenoise`
+# RUN sed -i "s/MIDDLEWARE = \[/MIDDLEWARE = [\n    'whitenoise.middleware.WhiteNoiseMiddleware',/" /app/edgsh/settings.py
 
-# Add WhiteNoise storage configuration
-RUN echo "STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'" >> /app/edgsh/settings.py
+# # Add WhiteNoise storage configuration
+# RUN echo "STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'" >> /app/edgsh/settings.py
 
 # Run migrations
+RUN python manage.py makemigrations
 RUN python manage.py migrate
 
 # Run gunicorn
